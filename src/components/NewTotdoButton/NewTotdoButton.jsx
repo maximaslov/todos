@@ -11,10 +11,16 @@ const NewTodoButton = () => {
   };
 
   return (
-    <div className={data.showNewTodoItemBtn ? styles.newTodoBtnContainer : styles.hiddenNewTodoBtnContainer}>
-        <button onClick={onBtnClick} className={styles.newTodoBtn}>
-            <p>New Todo</p>
-        </button>
+    <div
+      className={
+        data.showNewTodoItemBtn
+          ? styles.newTodoBtnContainer
+          : styles.hiddenNewTodoBtnContainer
+      }
+    >
+      <button onClick={onBtnClick} className={styles.newTodoBtn}>
+        <p>New Todo</p>
+      </button>
     </div>
   );
 };

@@ -1,34 +1,36 @@
 import React, { useContext } from "react";
-import { TodosContext } from '../../Context';
+import { TodosContext } from "../../Context";
 import styles from "./TodoItem.module.css";
 
 const TodoItem = ({ title, description, id, status }) => {
-    const data = useContext(TodosContext);
-    const onTodoItemClick = (e) => {
-        data.setTodoCardData({
-            title,
-            description,
-            id,
-            status
-        });
-        !data.showTodoCard && !data.showNewTodoForm ? data.setShowTodoCard(true) : data.setShowTodoCard(false);
-        
-    } 
+  const data = useContext(TodosContext);
+  const onTodoItemClick = (e) => {
+    data.setTodoCardData({
+      title,
+      description,
+      id,
+      status,
+    });
+    !data.showTodoCard && !data.showNewTodoForm
+      ? data.setShowTodoCard(true)
+      : data.setShowTodoCard(false);
+    data.setShowNewTodoItemBtn(false);
+  };
 
-    const onCheckboxClick = (elem) => {
-        elem.stopPropagation();
-        if (!data.showNewTodoForm && !data.showTodoCard) {
-            const newTodos = data.todos.map((todo, i) => i === id - 1 ? {...todo, status: !todo.status} : todo);
-            data.setTodos(newTodos);
-        }
+  const onCheckboxClick = (elem) => {
+    elem.stopPropagation();
+    if (!data.showNewTodoForm && !data.showTodoCard) {
+      const newTodos = data.todos.map((todo, i) =>
+        i === id - 1 ? { ...todo, status: !todo.status } : todo
+      );
+      data.setTodos(newTodos);
     }
+  };
 
   const maxLength = 16;
 
   return (
-    <div 
-    onClick={onTodoItemClick}
-     className={styles.todoItemContainer}>
+    <div onClick={onTodoItemClick} className={styles.todoItemContainer}>
       <div>
         <p>{id}</p>
       </div>
@@ -43,7 +45,14 @@ const TodoItem = ({ title, description, id, status }) => {
         </p>
       </div>
       <div>
-        <input onClick={(e) => e.stopPropagation()} checked={status} onChange={onCheckboxClick} type="checkbox" name={id} id={id} />
+        <input
+          onClick={(e) => e.stopPropagation()}
+          checked={status}
+          onChange={onCheckboxClick}
+          type="checkbox"
+          name={id}
+          id={id}
+        />
       </div>
     </div>
   );
