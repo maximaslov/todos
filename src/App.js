@@ -3,8 +3,8 @@ import styles from "./App.module.css";
 import { TodosContext } from "./Context";
 import NewTodoButton from "./components/NewTotdoButton/NewTotdoButton";
 import NewTodoForm from "./components/NewTodoForm/NewTodoForm";
-import TodoList from "./TodoList/TodoList";
-import TodoCard from "./TodoList/TodoItem/TodoCard";
+import TodoList from "./components/TodoList/TodoList";
+import TodoCard from "./components/TodoList/TodoItem/TodoCard";
 
 function App() {
   const data = useContext(TodosContext);

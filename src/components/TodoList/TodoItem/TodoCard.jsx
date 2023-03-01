@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TodosContext } from "../../Context";
+import { TodosContext } from "../../../Context";
 import styles from "./TodoItem.module.css";
 
 const TodoCard = () => {
