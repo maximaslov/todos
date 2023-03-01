@@ -15,19 +15,25 @@ const Context = (props) => {
 
   const todoStorage = window.localStorage;
 
-  const todoData = todoStorage.getItem("storageTodoList");
-  const todoList = todoData ? JSON.parse(todoData) : [];
-  const [todos, setTodos] = useState(todoList);
+  const [todos, setTodos] = useState(() => {
+    const todoData = todoStorage.getItem("storageTodoList");
+   
+    return todoData ? JSON.parse(todoData) : [];
+   });
+   
+   const updateTodos = (todo) => {
+    todoStorage.setItem("storageTodoList", JSON.stringify(todo));
+   
+    setTodos(todo)
+   }
 
   const value = {
     showNewTodoItemBtn,
     setShowNewTodoItemBtn,
     showNewTodoForm,
     setShowTodoForm,
-    todoData,
-    todoList,
     todos,
-    setTodos,
+    updateTodos,
     todoStorage,
     showTodoCard,
     setShowTodoCard,

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TodosContext } from "../../../Context";
+import { TodosContext } from "../../../context/Context";
 import styles from "./TodoItem.module.css";
 
 const TodoItem = ({ title, description, id, status }) => {
@@ -23,7 +23,7 @@ const TodoItem = ({ title, description, id, status }) => {
       const newTodos = data.todos.map((todo, i) =>
         i === id - 1 ? { ...todo, status: !todo.status } : todo
       );
-      data.setTodos(newTodos);
+      data.updateTodos(newTodos);
     }
   };
 

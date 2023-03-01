@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TodosContext } from "../../../Context";
+import { TodosContext } from "../../../context/Context";
 import styles from "./TodoItem.module.css";
 
 const TodoCard = () => {
@@ -8,7 +8,7 @@ const TodoCard = () => {
 
   const onDeleteButtonClick = () => {
     const newTodos = data.todos.filter((todo, i) => i !== id - 1);
-    data.setTodos(newTodos);
+    data.updateTodos(newTodos);
     data.setShowTodoCard(false);
     data.setShowNewTodoItemBtn(true);
   };

@@ -1,14 +1,10 @@
-import React, { useContext, useEffect } from "react";
-import { TodosContext } from "../../Context";
+import React, { useContext } from "react";
+import { TodosContext } from "../../context/Context";
 import styles from "./TodoList.module.css";
 import TodoItem from "./TodoItem/TodoItem";
 
 const TodoList = () => {
   const data = useContext(TodosContext);
-
-  useEffect(() => {
-    data.todoStorage.setItem("storageTodoList", JSON.stringify(data.todos));
-  }, [data.todos]);
 
   return (
     <div className={styles.todoListContainer}>

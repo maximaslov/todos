@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styles from "./App.module.css";
-import { TodosContext } from "./Context";
+import { TodosContext } from "./context/Context";
 import NewTodoButton from "./components/NewTotdoButton/NewTotdoButton";
 import NewTodoForm from "./components/NewTodoForm/NewTodoForm";
 import TodoList from "./components/TodoList/TodoList";

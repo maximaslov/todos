@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import styles from "./NewTodoForm.module.css";
-import { TodosContext } from "../../Context";
+import { TodosContext } from "../../context/Context";
 import { todoFormSchema } from "./todoFormSchema";
 import { useFormik } from "formik";
 
@@ -24,7 +24,7 @@ const NewTodoForm = () => {
       };
       const newTodoList = [...data.todos, newTodo];
 
-      data.setTodos(newTodoList);
+      data.updateTodos(newTodoList);
       data.setShowTodoForm(false);
       data.setShowNewTodoItemBtn(true);
       resetForm();

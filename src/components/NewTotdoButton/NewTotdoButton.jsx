@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styles from "./NewTodoButton.module.css";
-import { TodosContext } from "../../Context";
+import { TodosContext } from "../../context/Context";
 
 const NewTodoButton = () => {
   const data = useContext(TodosContext);
