@@ -6,6 +6,8 @@ const Context = (props) => {
   const [showNewTodoItemBtn, setShowNewTodoItemBtn] = useState(true);
   const [showNewTodoForm, setShowTodoForm] = useState(false);
   const [showTodoCard, setShowTodoCard] = useState(false);
+  const [showTodoFormBox, setShowTodoFormBox] = useState(false);
+  const [hideAddButton, setHideAddButton] = useState(false);
   const [todoCardData, setTodoCardData] = useState({
     title: null,
     description: null,
@@ -14,16 +16,13 @@ const Context = (props) => {
   });
 
   const todoStorage = window.localStorage;
-
   const [todos, setTodos] = useState(() => {
     const todoData = todoStorage.getItem("storageTodoList");
-   
     return todoData ? JSON.parse(todoData) : [];
    });
    
    const updateTodos = (todo) => {
     todoStorage.setItem("storageTodoList", JSON.stringify(todo));
-   
     setTodos(todo)
    }
 
@@ -39,6 +38,10 @@ const Context = (props) => {
     setShowTodoCard,
     todoCardData,
     setTodoCardData,
+    hideAddButton,
+    setHideAddButton,
+    showTodoFormBox,
+    setShowTodoFormBox
   };
 
   return (

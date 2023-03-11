@@ -9,8 +9,12 @@ const NewTodoForm = () => {
   const [touchedFields, setTouchedFields] = useState({});
 
   const onClose = () => {
-    data.setShowTodoForm(false);
     data.setShowNewTodoItemBtn(true);
+    data.setHideAddButton(false);
+    data.setShowTodoFormBox(false);
+    setTimeout(() => {
+      data.setShowTodoForm(false);
+    }, 700);
   };
 
   const formik = useFormik({
@@ -27,6 +31,8 @@ const NewTodoForm = () => {
       data.updateTodos(newTodoList);
       data.setShowTodoForm(false);
       data.setShowNewTodoItemBtn(true);
+      data.setHideAddButton(false);
+      data.setShowTodoFormBox(false);
       resetForm();
     },
   });
@@ -41,8 +47,10 @@ const NewTodoForm = () => {
     formik.errors.description && touchedFields.description;
 
   return (
-    <div className={data.showNewTodoForm ? styles.todoFormContaner : null}>
-      <div className={styles.todoFormBox}>
+    <div className={styles.todoFormContaner}>
+      <div 
+      className={data.showTodoFormBox ? styles.todoFormBox : styles.hidenTodoFormBox}
+      >
         <form className={styles.todoForm} onSubmit={formik.handleSubmit}>
           <div>
             <input

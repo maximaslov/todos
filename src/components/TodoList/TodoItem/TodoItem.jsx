@@ -11,6 +11,9 @@ const TodoItem = ({ title, description, id, status }) => {
       id,
       status,
     });
+    setTimeout(() => {
+      data.setShowNewTodoItemBtn(false);
+    }, 700)
     !data.showTodoCard && !data.showNewTodoForm
       ? data.setShowTodoCard(true)
       : data.setShowTodoCard(false);
@@ -45,7 +48,7 @@ const TodoItem = ({ title, description, id, status }) => {
         </p>
       </div>
       <div>
-        <input
+        <input className={styles.checkbox}
           onClick={(e) => e.stopPropagation()}
           checked={status}
           onChange={onCheckboxClick}

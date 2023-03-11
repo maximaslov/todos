@@ -24,18 +24,39 @@ button {
   padding: 20px 20px 10px 20px;
   border-radius: 20px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.093);
-  animation: show 0.7s ease;
   background-color: white;
+  animation: show 0.7s ease;
+}
+
+.hidenTodoFormBox {
+  padding: 20px 20px 10px 20px;
+  opacity: 0;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.093);
+  background-color: white;
+  animation: hide 0.7s ease;
 }
 
 @keyframes show {
   0% {
-    transform: scale(0) translateY(-50%);
+    transform: scale(0);
+    margin: 0 auto;
     opacity: 0;
   }
   100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes hide {
+  0% {
     transform: scale(1) translateY(0);
     opacity: 1;
+  }
+  100% {
+    transform: scale(0) translateY(-50%);
+    opacity: 0;
   }
 }
 

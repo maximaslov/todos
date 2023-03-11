@@ -8,6 +8,10 @@ const NewTodoButton = () => {
   const onBtnClick = () => {
     data.setShowTodoForm(true);
     data.setShowNewTodoItemBtn(false);
+    data.setShowTodoFormBox(true);
+    setTimeout(() => {
+      data.setHideAddButton(true)
+    }, 700);
   };
 
   return (
@@ -18,7 +22,7 @@ const NewTodoButton = () => {
           : styles.hiddenNewTodoBtnContainer
       }
     >
-      <button onClick={onBtnClick} className={styles.newTodoBtn}>
+      <button onClick={onBtnClick} className={!data.hideAddButton ? styles.newTodoBtn : styles.hideNewTodoBtn}>
         <p>New Todo</p>
       </button>
     </div>
